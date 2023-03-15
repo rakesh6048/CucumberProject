@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="2" passed="2">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="9235" started-at="2022-10-14T15:25:40Z" finished-at="2022-10-14T15:25:50Z">
+    <groups>
+      <group name="cucumber">
+        <method signature="AbstractTestNGCucumberTests.feature(cucumber.api.testng.CucumberFeatureWrapper)[pri:0, instance:main.TestRunner@63753b6d]" name="feature" class="cucumber.api.testng.AbstractTestNGCucumberTests"/>
+      </group> <!-- cucumber -->
+    </groups>
+    <test name="Default test" duration-ms="9235" started-at="2022-10-14T15:25:40Z" finished-at="2022-10-14T15:25:50Z">
+      <class name="main.TestRunner">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:main.TestRunner@63753b6d]" name="setUp" is-config="true" duration-ms="9560" started-at="2022-10-14T20:55:31Z" finished-at="2022-10-14T20:55:40Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="BeforeTest()[pri:0, instance:main.TestRunner@63753b6d]" name="BeforeTest" is-config="true" duration-ms="0" started-at="2022-10-14T20:55:40Z" finished-at="2022-10-14T20:55:40Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- BeforeTest -->
+        <test-method status="PASS" signature="setUpClass()[pri:0, instance:main.TestRunner@63753b6d]" name="setUpClass" is-config="true" duration-ms="361" started-at="2022-10-14T20:55:40Z" finished-at="2022-10-14T20:55:41Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUpClass -->
+        <test-method status="PASS" signature="BeforeClass()[pri:0, instance:main.TestRunner@63753b6d]" name="BeforeClass" is-config="true" duration-ms="1" started-at="2022-10-14T20:55:41Z" finished-at="2022-10-14T20:55:41Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- BeforeClass -->
+        <test-method status="PASS" signature="BeforeMethod()[pri:0, instance:main.TestRunner@63753b6d]" name="BeforeMethod" is-config="true" duration-ms="0" started-at="2022-10-14T20:55:41Z" finished-at="2022-10-14T20:55:41Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- BeforeMethod -->
+        <test-method status="PASS" signature="feature(cucumber.api.testng.CucumberFeatureWrapper)[pri:0, instance:main.TestRunner@63753b6d]" name="feature" duration-ms="8655" started-at="2022-10-14T20:55:41Z" description="Runs Cucumber Feature" data-provider="features" finished-at="2022-10-14T20:55:50Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Login to GitHub]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- feature -->
+        <test-method status="PASS" signature="tearDownr(org.testng.ITestResult)[pri:0, instance:main.TestRunner@63753b6d]" name="tearDownr" is-config="true" duration-ms="1" started-at="2022-10-14T20:55:50Z" finished-at="2022-10-14T20:55:50Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=feature status=SUCCESS method=AbstractTestNGCucumberTests.feature(cucumber.api.testng.CucumberFeatureWrapper)[pri:0, instance:main.TestRunner@63753b6d] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDownr -->
+        <test-method status="PASS" signature="BeforeMethod()[pri:0, instance:main.TestRunner@63753b6d]" name="BeforeMethod" is-config="true" duration-ms="0" started-at="2022-10-14T20:55:50Z" finished-at="2022-10-14T20:55:50Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- BeforeMethod -->
+        <test-method status="PASS" signature="first()[pri:0, instance:main.TestRunner@63753b6d]" name="first" duration-ms="6" started-at="2022-10-14T20:55:50Z" finished-at="2022-10-14T20:55:50Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- first -->
+        <test-method status="PASS" signature="tearDownr(org.testng.ITestResult)[pri:0, instance:main.TestRunner@63753b6d]" name="tearDownr" is-config="true" duration-ms="1" started-at="2022-10-14T20:55:50Z" finished-at="2022-10-14T20:55:50Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=first status=SUCCESS method=TestRunner.first()[pri:0, instance:main.TestRunner@63753b6d] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDownr -->
+        <test-method status="PASS" signature="tearDownClass()[pri:0, instance:main.TestRunner@63753b6d]" name="tearDownClass" is-config="true" duration-ms="17" started-at="2022-10-14T20:55:50Z" finished-at="2022-10-14T20:55:50Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDownClass -->
+        <test-method status="PASS" signature="takeScreenshot()[pri:0, instance:main.TestRunner@63753b6d]" name="takeScreenshot" is-config="true" duration-ms="0" started-at="2022-10-14T20:55:50Z" finished-at="2022-10-14T20:55:50Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- takeScreenshot -->
+        <test-method status="PASS" signature="AfterTest()[pri:0, instance:main.TestRunner@63753b6d]" name="AfterTest" is-config="true" duration-ms="0" started-at="2022-10-14T20:55:50Z" finished-at="2022-10-14T20:55:50Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- AfterTest -->
+        <test-method status="FAIL" signature="generateHTMLReports()[pri:0, instance:main.TestRunner@63753b6d]" name="generateHTMLReports" is-config="true" duration-ms="0" started-at="2022-10-14T20:55:50Z" finished-at="2022-10-14T20:55:50Z">
+          <exception class="java.io.FileNotFoundException">
+            <message>
+              <![CDATA[E:\workspace3\NewCucumber\target\cucumber-html-reports\null\css\bootstrap.min.css (The system cannot find the path specified)]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.io.FileNotFoundException: E:\workspace3\NewCucumber\target\cucumber-html-reports\null\css\bootstrap.min.css (The system cannot find the path specified)
+	at java.io.FileOutputStream.open0(Native Method)
+	at java.io.FileOutputStream.open(Unknown Source)
+	at java.io.FileOutputStream.<init>(Unknown Source)
+	at com.google.common.io.Files$FileByteSink.openStream(Files.java:192)
+	at com.google.common.io.Files$FileByteSink.openStream(Files.java:180)
+	at com.google.common.io.ByteSource.copyTo(ByteSource.java:268)
+	at com.google.common.io.Files.copy(Files.java:319)
+	at D_utils.Library.copyFolder(Library.java:882)
+	at D_utils.Library.copyFolder(Library.java:878)
+	at D_utils.Library.moveReportsAndScreenshots(Library.java:845)
+	at main.TestRunner.generateHTMLReports(TestRunner.java:87)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:85)
+	at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:510)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:211)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:138)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:329)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:261)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1215)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1140)
+	at org.testng.TestNG.run(TestNG.java:1048)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:132)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:236)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:81)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.io.FileNotFoundException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- generateHTMLReports -->
+      </class> <!-- main.TestRunner -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>

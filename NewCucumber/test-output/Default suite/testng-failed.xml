@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
+  <test name="Default test(failed)">
+    <classes>
+      <class name="main.TestRunner">
+        <methods>
+          <include name="takeScreenshot"/>
+          <include name="BeforeMethod"/>
+          <include name="BeforeClass"/>
+          <include name="setUpClass"/>
+          <include name="generateHTMLReports"/>
+          <include name="feature" invocation-numbers="0"/>
+          <include name="setUp"/>
+          <include name="BeforeTest"/>
+          <include name="tearDownClass"/>
+          <include name="AfterTest"/>
+          <include name="tearDownr"/>
+        </methods>
+      </class> <!-- main.TestRunner -->
+    </classes>
+  </test> <!-- Default test(failed) -->
+</suite> <!-- Failed suite [Default suite] -->
