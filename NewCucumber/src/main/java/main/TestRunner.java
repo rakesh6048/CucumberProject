@@ -34,7 +34,6 @@ public class TestRunner extends AbstractTestNGCucumberTests {
 		Constants.LoadLocatorProperty();
 		Constants.LoadTestDataProperty();
 		//Constants.LoadBSConfigProperty();
-		//Constants.LoadBSConfigProperty();
 		Library.createTestRunIDFolder();
 
 		Constants.configureDriverPath();
