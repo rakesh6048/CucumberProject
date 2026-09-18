@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suit name = "Testng Cucumber Suite" parallel="tests">
-    <test name ="Run AllTests">
-    <classes>
-    <class name="main.TestRunner"></class>
-    </classes>
+<suite name="Testng Cucumber Suite" parallel="tests">
+    <test name="Run AllTests">
+        <classes>
+            <class name="main.TestRunner"/>
+        </classes>
     </test>
-    </suit>
+</suite>

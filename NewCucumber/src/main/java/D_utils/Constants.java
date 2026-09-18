@@ -21,15 +21,11 @@ public class Constants {
 	public static String baseUrl = null;
 	
 	public static void configureDriverPath() throws IOException {
-		
 		//WebDriverManager.firefoxdriver().setup();
 	    //String firefoxDriverPath = System.getProperty("user.dir") + "//drivers//windows//geckodriver.exe";
 	    //System.setProperty("webdriver.gecko.driver", firefoxDriverPath);
-		
-		//WebDriverManager.chromedriver().setup();
-	    //String chromeDriverPath = System.getProperty("user.dir") + "//drivers//windows//chromedriver.exe";
-	    //System.setProperty("webdriver.chrome.driver", chromeDriverPath);
-	    System.setProperty("webdriver.chrome.driver", "D:/Driver/chromedriver_win32/chromedriver.exe");
+	    
+		WebDriverManager.chromedriver().setup();
 		
 		//WebDriverManager.iedriver().setup();
 	    //String ieDriverPath = System.getProperty("user.dir") + "//drivers//windows//IEDriverServer.exe";

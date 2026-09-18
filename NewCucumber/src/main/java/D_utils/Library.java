@@ -22,6 +22,7 @@ import java.io.FilenameFilter;
 import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
@@ -140,7 +141,7 @@ public class Library {
 		};
 		try {
 			Thread.sleep(1000);
-			WebDriverWait wait = new WebDriverWait(driver, 30);
+			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
 			wait.until(expectation);
 		}catch(Throwable error) {
 			Assert.fail("Timeout waiting for Page Load to complete. ");
@@ -152,7 +153,7 @@ public class Library {
 				return ((JavascriptExecutor) driver).executeScript("return document.readyState").equals("complete");
 			}
 		};
-		WebDriverWait wait = new WebDriverWait(driver, 30);
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
 		wait.until(pageLoadCondition);
 	}
 
@@ -161,16 +162,16 @@ public class Library {
 	}
 
 	public static void implicitWait(final int time) {
-		driver.manage().timeouts().implicitlyWait(time, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(time));
 	}
 
 	public static void explicitWait(final WebElement element) {
-		WebDriverWait wait =new WebDriverWait(driver, 3000);
+		WebDriverWait wait =new WebDriverWait(driver, Duration.ofSeconds(30));
 		wait.until(ExpectedConditions.visibilityOf(element));
 	}
 
 	public static void pageLoad(final int time) {
-		driver.manage().timeouts().pageLoadTimeout(time, TimeUnit.SECONDS);
+		driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(time));
 	}
 	public static void deleteAllCookies() {
 		driver.manage().deleteAllCookies();
@@ -228,10 +229,12 @@ public class Library {
 
 	public static void closeDriver() {
 		try {
-			if(config.getProperty("browserstackexecution").equals("Y")) {
-
+			if (config != null && "Y".equalsIgnoreCase(config.getProperty("browserstackexecution"))) {
+				// browserstack-specific cleanup can go here
 			}
-			driver.quit();
+			if (driver != null) {
+				driver.quit();
+			}
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
@@ -282,9 +285,14 @@ public class Library {
 	}
 
 	public static void generateCucumberReport() throws IOException{
+		File jsonFile = new File(System.getProperty("user.dir") + File.separator + "target" + File.separator + "cucumber.json");
+		if (!jsonFile.exists()) {
+			System.out.println("Skipping report generation because target/cucumber.json was not generated.");
+			return;
+		}
 		File reportOutputDirectory = new File("target");
 		ArrayList<String> jsonFiles = new ArrayList<String>();
-		jsonFiles.add("target/cucumber.json");
+		jsonFiles.add(jsonFile.getPath());
 		/* Retrive Data from config.properties file */
 		config = new Properties();
 		FileInputStream ip = new FileInputStream(System.getProperty("user.dir") +"//config.properties");
@@ -307,6 +315,9 @@ public class Library {
 	}
 	public static void formatReport() {
 		File file = new File(System.getProperty("user.dir") + "\\target\\cucumber-html-reports");
+		if (!file.exists() || !file.isDirectory()) {
+			return;
+		}
 		File[] files = file.listFiles(new FilenameFilter() {
 			@Override
 			public boolean accept(File dir, String name) {
@@ -317,6 +328,9 @@ public class Library {
 				}
 			}
 		});
+		if (files == null || files.length == 0) {
+			return;
+		}
 		String filename = "";
 		for(File f : files) {
 			if(filename.length() > 0) {
@@ -400,7 +414,7 @@ public class Library {
 	}
 
 	public static WebElement getWebElement(String field, int numberofseconds) throws Exception{
-		WebDriverWait wait =new WebDriverWait(driver,  numberofseconds);
+		WebDriverWait wait =new WebDriverWait(driver, Duration.ofSeconds(numberofseconds));
 		try {
 			WebElement ele = wait.until(ExpectedConditions.presenceOfElementLocated(getLocator(field)));
 			return ele;
@@ -811,22 +825,32 @@ public class Library {
     	String userdirectory = System.getProperty("user.dir");
     	String cucumberreportdirectory = userdirectory + "//target//cucumber-html-reports";
     	String screenshotsdirectory = userdirectory + "//screenshots";
-    	File file = new File(cucumberreportdirectory);
+    	File reportRoot = new File(cucumberreportdirectory);
+    	if (!reportRoot.exists()) {
+    		reportRoot.mkdirs();
+    	}
+    	File screenshotRoot = new File(screenshotsdirectory);
+    	if (!screenshotRoot.exists()) {
+    		screenshotRoot.mkdirs();
+    	}
+    	File file = reportRoot;
     	String[] directories = file.list(new FilenameFilter() {
     		public boolean accept(File current, String name) {
     			return new File(current,name).isDirectory();
     		}
 		});
     	int lastrunid =0;
-    	for(int i=0; i<=directories.length - 1; i++) {
-    		if(directories[i].contains("Run")) {
-    		  int runID = Integer.parseInt(directories[i].split("_")[1]);
-    		  
-    		  if(lastrunid < runID) {
-    			  lastrunid = runID;
-    		  }
+    	if (directories != null) {
+    		for(int i=0; i<=directories.length - 1; i++) {
+    			if(directories[i].contains("Run")) {
+    			  int runID = Integer.parseInt(directories[i].split("_")[1]);
+    			  
+    			  if(lastrunid < runID) {
+    				  lastrunid = runID;
+    			  }
+    			}
     		}
-    	}
+    }
     	int newrunid = lastrunid + 1;
     	newrptfoldername = "Run_" + newrunid + "_" + new SimpleDateFormat("MM-dd-yyyy_HH-mm-ss-SS").format(new GregorianCalendar().getTime());
     	file = new File(cucumberreportdirectory + "\\" + newrptfoldername);
@@ -839,6 +863,10 @@ public class Library {
     	String userdirectory = System.getProperty("user.dir");
     	String cucumberreportdirectory = userdirectory + "\\target\\cucumber-html-reports";
     	String screenshotsdirectory = userdirectory + "\\screenshots";
+    	File reportRoot = new File(cucumberreportdirectory);
+    	if (!reportRoot.exists()) {
+    		return;
+    	}
     	
     	File sourceFolder = new File(cucumberreportdirectory + "\\css");
     	File destinationFolder = new File(cucumberreportdirectory + "\\" + newrptfoldername + "\\css");
@@ -866,12 +894,17 @@ public class Library {
     }
     
     public static void copyFolder(File sourceFolder, File destinationFolder) throws IOException {
-    	
+    	if (sourceFolder == null || !sourceFolder.exists()) {
+    		return;
+    	}
     	if(sourceFolder.isDirectory()) {
     		if(!destinationFolder.exists()) {
-    			destinationFolder.mkdir();
+    			destinationFolder.mkdirs();
     		}
     		String files[] = sourceFolder.list();
+    		if (files == null) {
+    			return;
+		}
     		for(String file : files) {
     			File srcFile = new File(sourceFolder, file);
     			File destFile = new File(destinationFolder, file);
@@ -879,6 +912,9 @@ public class Library {
     		}
     		
     	} else {
+    		if (!destinationFolder.getParentFile().exists()) {
+    			destinationFolder.getParentFile().mkdirs();
+    		}
     		Files.copy(sourceFolder, destinationFolder);
     	}
     }
