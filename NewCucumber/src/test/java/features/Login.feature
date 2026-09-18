@@ -16,6 +16,5 @@ Feature: Login to GitHub
    And I type "Git_password"
    When I click "Git_login_button"
    #Then I should see "GitHome_Page" field 
-    #Then I should see "GitHome_Page" field 
    
   
